@@ -17,6 +17,12 @@ spec:
       containers:
         - name: {{ .Values.metadata.name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.version }}"
+          resources:
+            requests:
+              cpu: "250m"
+            limits:
+              cpu: "500m"
+
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
